@@ -86,7 +86,7 @@ class ZabbixApi
       if @proxy_uri
         http = Net::HTTP.Proxy(@proxy_host, @proxy_port, @proxy_user, @proxy_pass).new(uri.host, uri.port)
       else
-        http = Net::HTTP.new(uri.host, uri.port)
+        http = Net::HTTP.new(uri.host, uri.port, nil)
       end
 
       if uri.scheme == 'https'
